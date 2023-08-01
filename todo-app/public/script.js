@@ -5,31 +5,34 @@ document.addEventListener('DOMContentLoaded', () => {
   
     // Function to create a new task list item
     function createTaskListItem(task) {
-        const li = document.createElement('li');
-        li.textContent = task.description;
-        li.setAttribute('data-task-id', task.id);
+      const li = document.createElement('li');
+      li.setAttribute('data-task-id', task.id);
     
-        const checkbox = document.createElement('input');
-        checkbox.type = 'checkbox';
-        checkbox.checked = task.completed;
-        checkbox.addEventListener('change', () => updateTaskStatus(task.id, checkbox.checked));
+      const checkbox = document.createElement('input');
+      checkbox.type = 'checkbox';
+      checkbox.checked = task.completed;
+      checkbox.addEventListener('change', () => updateTaskStatus(task.id, checkbox.checked));
     
-        const deleteButton = document.createElement('button');
-        deleteButton.textContent = 'Delete';
-        deleteButton.addEventListener('click', (event) => {
-          event.stopPropagation();
-          deleteTask(task.id);
-        });
+      const descriptionSpan = document.createElement('span');
+      descriptionSpan.textContent = task.description;
     
-        li.appendChild(checkbox);
-        li.appendChild(deleteButton);
+      const deleteButton = document.createElement('button');
+      deleteButton.textContent = 'Delete';
+      deleteButton.addEventListener('click', (event) => {
+        event.stopPropagation();
+        deleteTask(task.id);
+      });
     
-        if (task.completed) {
-          li.classList.add('completed');
-        }
+      li.appendChild(descriptionSpan);
+      li.appendChild(checkbox);
+      li.appendChild(deleteButton);
     
-        return li;
+      if (task.completed) {
+        li.classList.add('completed');
       }
+    
+      return li;
+    }
   
     // Function to fetch tasks from the server
     function fetchTasks() {
@@ -104,4 +107,3 @@ document.addEventListener('DOMContentLoaded', () => {
     // Initial fetch of tasks from the server
     fetchTasks();
   });
-  
