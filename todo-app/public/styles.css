@@ -1,23 +1,23 @@
 body {
     font-family: Arial, sans-serif;
-  }
+}
   
-  .container {
+.container {
     display: flex;
     justify-content: space-around;
     margin-top: 30px;
-  }
+}
   
-  .left-pane, .right-pane {
+.left-pane, .right-pane {
     width: 45%;
-  }
+}
   
-  ul {
+ul {
     list-style: none;
     padding: 0;
-  }
+}
   
-  li {
+li {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -25,17 +25,21 @@ body {
     padding: 5px;
     border: 1px solid #ccc;
     border-radius: 5px;
-  }
+}
   
-  li.completed {
-    background-color: #f0f0f0;
-  }
+li.completed {
+  background-color: #f0f0f0;
+}
+
+li.completed span {
+  text-decoration: line-through;
+}
   
-  button {
+button {
     background-color: #ff0000;
     color: #fff;
     border: none;
     padding: 5px 10px;
     border-radius: 3px;
     cursor: pointer;
-  }
+}
